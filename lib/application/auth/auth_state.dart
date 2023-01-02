@@ -1,10 +1,10 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-import 'package:clean_api/clean_api.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../domain/auth/model/user_model.dart';
+import '../../utils/network_util/network_handler.dart';
 
 class AuthState extends Equatable {
   final UserModel user;

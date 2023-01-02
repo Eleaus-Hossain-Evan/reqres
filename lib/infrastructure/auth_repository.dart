@@ -1,6 +1,8 @@
 import 'dart:convert';
 
-import 'package:clean_api/clean_api.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
+import 'package:reqres/utils/network_util/network_handler.dart';
 import 'package:reqres/utils/strings.dart';
 
 import '../domain/auth/login_body.dart';
@@ -8,10 +10,8 @@ import '../domain/auth/model/signup_responce.dart';
 import '../domain/auth/signup_body.dart';
 import '../utils/api_routes.dart';
 
-import 'package:hive_flutter/hive_flutter.dart';
-
 class AuthRepository {
-  final api = CleanApi.instance;
+  final api = NetworkHandler.instance;
   // @override
   // Future<Option<UserModel>> getUserData() {}
 
@@ -34,7 +34,7 @@ class AuthRepository {
       box.put(KStrings.token, r.token);
       box.put(KStrings.user, body.toJson());
 
-      api.setToken({'Authorization': 'Bearer ${r.token}'});
+      api.setToken(r.token);
       Logger.v("data: $data");
       return right(r);
     });

@@ -37,7 +37,6 @@ dependencies:
   cupertino_icons: ^1.0.2
   hooks_riverpod: ^2.1.1
   equatable: ^2.0.5
-  clean_api: ^0.2.7
   go_router: ^5.2.0
   cached_network_image: ^3.2.3
   flutter_easylogger: ^2.3.3
@@ -49,6 +48,9 @@ dependencies:
   font_awesome_flutter: ^10.2.1
   form_validator: ^1.0.3
   flutter_hooks: ^0.18.5+1
+  hive_flutter: ^1.1.0
+  hive: ^2.2.3
+  fpdart: ^0.4.0
 
 dev_dependencies:
   flutter_test:

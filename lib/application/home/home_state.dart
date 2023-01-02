@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:clean_api/models/clean_failure.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../domain/auth/model/user_model.dart';
 import '../../domain/home/home_response.dart';
+import '../../utils/network_util/network_handler.dart';
 
 class HomeState extends Equatable {
   final bool loading;

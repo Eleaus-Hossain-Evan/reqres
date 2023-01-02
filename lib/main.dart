@@ -1,11 +1,12 @@
 import 'package:bot_toast/bot_toast.dart';
-import 'package:clean_api/clean_api.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easylogger/flutter_logger.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:reqres/utils/network_util/network_handler.dart';
 
 import 'application/global.dart';
 import 'route/go_router.dart';
@@ -25,14 +26,12 @@ Future<void> main() async {
   await Hive.initFlutter();
   final box = await Hive.openBox(KStrings.cacheBox);
 
-  final api = CleanApi.instance;
+  final api = NetworkHandler.instance;
 
   api.setup(baseUrl: APIRoute.BASE_URL, showLogs: false);
-  api.enableCache(box);
+  // api.enableCache(box);
 
-  api.setToken(
-    {'Authorization': 'Bearer ${box.get(KStrings.token, defaultValue: '')}'},
-  );
+  api.setToken(box.get(KStrings.token, defaultValue: ''));
 
   // ignore: no_leading_underscores_for_local_identifiers
   final _databaseService = DatabaseService();

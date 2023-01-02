@@ -1,9 +1,9 @@
-import 'package:clean_api/clean_api.dart';
-import 'package:clean_api/clean_failure_dialogue/clean_failure_details_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:reqres/application/global.dart';
 import 'package:reqres/application/home/home_state.dart';
 import 'package:reqres/infrastructure/home_repo.dart';
+
+import '../../utils/network_util/network_handler.dart';
 
 final homeProvider = StateNotifierProvider<HomeNotifier, HomeState>((ref) {
   return HomeNotifier(HomeRepo(), ref);
